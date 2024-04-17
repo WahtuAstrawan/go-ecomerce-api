@@ -19,9 +19,9 @@ type User struct {
 }
 
 type RegisterUserPayload struct {
-	FirstName string `json:"firstName"`
-	LastName  string `json:"lastName"`
-	Email     string `json:"email"`
-	Username  string `json:"username"`
-	Password  string `json:"password"`
+	FirstName string `json:"firstName" validate:"required"`
+	LastName  string `json:"lastName" validate:"required"`
+	Email     string `json:"email" validate:"required,email"`
+	Username  string `json:"username" validate:"required"`
+	Password  string `json:"password" validate:"required,min=3,max=130"`
 }
